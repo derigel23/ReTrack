@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReTrack", "ReTrack\ReTrack\ReTrack.csproj", "{F1CF196E-904A-479E-AB98-3E160C4A1EAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReTrack.Tests", "ReTrack\ReTrack.Tests\ReTrack.Tests.csproj", "{CA25B478-4CC1-4F22-ACF1-A6DD0B88EBFC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F1CF196E-904A-479E-AB98-3E160C4A1EAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1CF196E-904A-479E-AB98-3E160C4A1EAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1CF196E-904A-479E-AB98-3E160C4A1EAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1CF196E-904A-479E-AB98-3E160C4A1EAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA25B478-4CC1-4F22-ACF1-A6DD0B88EBFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA25B478-4CC1-4F22-ACF1-A6DD0B88EBFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA25B478-4CC1-4F22-ACF1-A6DD0B88EBFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA25B478-4CC1-4F22-ACF1-A6DD0B88EBFC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
