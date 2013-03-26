@@ -58,7 +58,6 @@ namespace ReTrack
         null, // return a System.Drawing.Image to be displayed
         (lt, twi) =>
         {
-#warning Replace with your content
           var label = new RichTextLabel { BackColor = SystemColors.Control, Dock = DockStyle.Fill };
           label.RichTextBlock.Add(new RichText("My Content", new TextStyle(FontStyle.Bold)));
           label.RichTextBlock.Parameters = new RichTextBlockParameters(8, ContentAlignment.MiddleCenter);
