@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using YouTrackSharp.Infrastructure;
+using YouTrackSharp.Issues;
 
 namespace ReTrack
 {
@@ -11,6 +13,12 @@ namespace ReTrack
     {
       connection = new Connection(host, port, useSSL, path);
       connection.Authenticate(username, password);
+    }
+
+    public IEnumerable<Issue> Query(string s)
+    {
+      IssueManagement im = new IssueManagement(connection);
+      return im.GetIssuesBySearch(s);
     }
 
     public void Dispose()

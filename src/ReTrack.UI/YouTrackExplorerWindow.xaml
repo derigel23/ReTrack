@@ -4,7 +4,6 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:tk="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
-             xmlns:controls="clr-namespace:Microsoft.Windows.Controls;assembly=WPFToolkit"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" x:Name="ytWindow">
   <Grid DataContext="{Binding ElementName=ytWindow, Path=.}">
@@ -15,8 +14,8 @@
     <Grid.ColumnDefinitions>
       <ColumnDefinition/>
     </Grid.ColumnDefinitions>
-    <tk:AutoCompleteBox ToolTip="Enter query" Text="{Binding Path=InputText}"
-                        Height="27" Populating="TbInput_OnPopulating"/>
-    <DataGrid Grid.Row="1"/>
+    <tk:AutoCompleteBox ToolTip="Enter query"
+                        Height="27" Populating="TbInput_OnPopulating" KeyUp="OnInputBoxKeyUp"/>
+    <DataGrid Grid.Row="1" SelectionChanged="DataGrid_SelectionChanged"/>
   </Grid>
 </UserControl>

@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Input;
 
 namespace ReTrack
 {
@@ -9,23 +10,29 @@ namespace ReTrack
   /// </summary>
   public partial class YouTrackExplorerWindow : UserControl
   {
-    public static readonly DependencyProperty InputTextProperty = DependencyProperty.Register(
-      "InputText", typeof (string), typeof (YouTrackExplorerWindow), new PropertyMetadata(default(string)));
+    private readonly YouTrackProxy proxy;
 
     public YouTrackExplorerWindow()
     {
-      InitializeComponent();
-    }
-
-    public string InputText
-    {
-      get { return (string) GetValue(InputTextProperty); }
-      set { SetValue(InputTextProperty, value); }
+      this.proxy = proxy;
     }
 
     private void TbInput_OnPopulating(object sender, PopulatingEventArgs e)
     {
       
+    }
+
+    private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+
+    }
+
+    private void OnInputBoxKeyUp(object sender, KeyEventArgs e)
+    {
+      if (e.Key == Key.Enter)
+      {
+        
+      }
     }
   }
 }

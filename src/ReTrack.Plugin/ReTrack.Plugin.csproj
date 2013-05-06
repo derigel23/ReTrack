@@ -70,7 +70,6 @@
     </Compile>
     <Compile Include="ReTrackSettings.cs" />
     <Compile Include="YouTrackExplorerWindowDescriptor.cs" />
-    <Compile Include="YouTrackProxy.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Actions.xml" />
