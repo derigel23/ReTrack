@@ -19,7 +19,7 @@ namespace ReTrack
     {
       InitializeComponent();
 
-      ctx.SetBinding(lifetime, (ReTrackSettings s) => s.YouTrackUsername, usernameBox, TextBox.TextProperty);
+      ctx.SetBinding(lifetime, (ReTrackSettingsReSharper s) => s.YouTrackUsername, usernameBox, TextBox.TextProperty);
     }
 
     public bool OnOk()

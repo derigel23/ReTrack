@@ -68,7 +68,7 @@
     <Compile Include="ReTrackOptionsPage.xaml.cs">
       <DependentUpon>ReTrackOptionsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ReTrackSettings.cs" />
+    <Compile Include="ReTrackSettingsReSharper.cs" />
     <Compile Include="YouTrackExplorerWindowDescriptor.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -82,6 +82,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ReTrack.Engine\ReTrack.Engine.csproj">
+      <Project>{330BD8C7-230C-4029-AE77-475F897192DA}</Project>
+      <Name>ReTrack.Engine</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <ReSharperSdkTargets Condition=" '$(ReSharperSdkTargets)' == '' ">$(MSBuildExtensionsPath)\JetBrains\ReSharper.SDK\v7.1</ReSharperSdkTargets>

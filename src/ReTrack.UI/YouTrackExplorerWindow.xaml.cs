@@ -10,11 +10,10 @@ namespace ReTrack
   /// </summary>
   public partial class YouTrackExplorerWindow : UserControl
   {
-    private readonly YouTrackProxy proxy;
+    public YouTrackProxy Proxy { get; set; }
 
     public YouTrackExplorerWindow()
     {
-      this.proxy = proxy;
     }
 
     private void TbInput_OnPopulating(object sender, PopulatingEventArgs e)
@@ -31,7 +30,8 @@ namespace ReTrack
     {
       if (e.Key == Key.Enter)
       {
-        
+        var owner = (AutoCompleteBox)sender;
+        var s = owner.Text;
       }
     }
   }
