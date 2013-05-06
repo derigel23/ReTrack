@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="520bb969-55f8-4073-9071-26fb045c7fa2" name="Login" linkedPackageId="cc3f364e-eff4-4cc6-9261-d6db151e6759" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <ownedCommentsInternal>
+    <comment Id="7632b845-00d4-4afd-a3a0-9cb53b4da818">
+      <elementDefinition Id="6b799272-b92f-4c45-9285-fe33c436b2b7" />
+      <body>Are the tracker settings blank?</body>
+      <annotatedElements>
+        <decisionNodeMoniker Id="a3763c06-3a25-4f47-90d7-3338e9d6cf7c" LastKnownName="Decision1" />
+      </annotatedElements>
+    </comment>
+    <comment Id="ef0c7055-4458-40d6-9992-9327b3b15037">
+      <elementDefinition Id="070c0306-a744-43b2-8a83-cb092026a63d" />
+      <body>Yes</body>
+    </comment>
+    <comment Id="da6a35b4-2c7a-4e8c-afef-8e16f5af874f">
+      <elementDefinition Id="1ba194fc-ed01-4ff4-b042-82eaf38d08f5" />
+      <body>Connection successful?</body>
+      <annotatedElements>
+        <decisionNodeMoniker Id="6d1c5d99-0a9d-4bc3-b85c-6d1075e53e14" LastKnownName="Decision2" />
+      </annotatedElements>
+    </comment>
+    <comment Id="7fe7e456-1691-4a62-8302-d5f15f346c53">
+      <elementDefinition Id="f0beab9a-5b63-4057-a4b1-04af048b7fed" />
+      <body>No</body>
+    </comment>
+    <comment Id="55a9d2fc-7693-4dde-a222-77680e5cd585">
+      <elementDefinition Id="3d002429-80ba-4ef3-a619-000590579646" />
+      <body>No</body>
+    </comment>
+    <comment Id="c495b78e-032b-4334-b4e5-00f1dea925b4">
+      <elementDefinition Id="00ee496e-1e8b-402a-bbbb-c9879521baeb" />
+      <body>Yes</body>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances Id="8c9a7b24-8a3f-4bfc-acd9-68eed73c77a9">
+      <profileInstance Id="dec07fdc-70bf-48ce-b0ae-970ab7e61ece" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="9a80673a-dcca-4314-bf9a-ac7769597931">
+      <profileInstance Id="65cb3092-b799-4109-9669-36c3db0c698d" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="e3aac5f6-c3a0-46cf-8cae-b20c8aaefe93" name="Login" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="1be1c037-c7b3-4faa-befb-25bc29c0ea73" />
+        <nodes>
+          <initialNode Id="51e53185-6223-4782-83b7-145ef1b51626" name="Initial1" isLeaf="false">
+            <elementDefinition Id="c65c0073-7f20-4c2f-a539-5908e8b3edfd" />
+            <flowNodeTargets>
+              <controlFlow Id="08d4d712-9b3c-47ce-950b-f154b7075bd4" isLeaf="false">
+                <decisionNodeMoniker Id="a3763c06-3a25-4f47-90d7-3338e9d6cf7c" LastKnownName="Decision1" />
+                <elementDefinition Id="68197b21-c16f-4872-bb05-40c0042e46c6" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <decisionNode Id="a3763c06-3a25-4f47-90d7-3338e9d6cf7c" name="Decision1" isLeaf="false">
+            <elementDefinition Id="40e800bf-674f-4eca-925c-d41d319f06f0" />
+            <flowNodeTargets>
+              <controlFlow Id="8e6e9e98-7c54-4b1a-a934-bde02e6723b0" isLeaf="false">
+                <opaqueActionMoniker Id="8c313f28-342d-42a9-bb46-3b102a13d372" LastKnownName="Attempt to connect with current settings" />
+                <elementDefinition Id="e139ad10-9e21-4b28-b123-d48037e996bd" />
+              </controlFlow>
+              <controlFlow Id="3849c519-9dd7-4894-8814-8cf25a62783a" isLeaf="false">
+                <opaqueActionMoniker Id="5e7820f8-c8a5-48ca-be97-f5f583c9dc9d" LastKnownName="Show settings page" />
+                <elementDefinition Id="c74026bc-caff-4eaf-a097-73a1de1acdb1" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction Id="8c313f28-342d-42a9-bb46-3b102a13d372" name="Attempt to connect with current settings" isLeaf="false">
+            <elementDefinition Id="701db458-482e-4019-80e5-741d1e8c065a" />
+            <flowNodeTargets>
+              <controlFlow Id="559653fb-cb63-4a31-a338-cb8c8d76f1e2" isLeaf="false">
+                <decisionNodeMoniker Id="6d1c5d99-0a9d-4bc3-b85c-6d1075e53e14" LastKnownName="Decision2" />
+                <elementDefinition Id="072550ac-5184-44e7-b7d2-d101166a8c16" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="5e7820f8-c8a5-48ca-be97-f5f583c9dc9d" name="Show settings page" isLeaf="false">
+            <elementDefinition Id="de5ecc08-4465-4b10-89f9-e9bf49b952e5" />
+            <flowNodeTargets>
+              <controlFlow Id="2c7bd617-9cbd-455f-bcdf-df58b4bac0a3" isLeaf="false">
+                <activityFinalNodeMoniker Id="c78ed1ad-d583-40b4-9211-d3d237c0bb67" LastKnownName="ActivityFinal2" />
+                <elementDefinition Id="716f6710-367a-433f-85ab-7084636f2044" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="6d1c5d99-0a9d-4bc3-b85c-6d1075e53e14" name="Decision2" isLeaf="false">
+            <elementDefinition Id="fbe67db8-1805-4217-9ffb-e28c11345b41" />
+            <flowNodeTargets>
+              <controlFlow Id="8ef7c8d8-5a8e-43ef-a022-7d072469d048" isLeaf="false">
+                <opaqueActionMoniker Id="5e7820f8-c8a5-48ca-be97-f5f583c9dc9d" LastKnownName="Show settings page" />
+                <elementDefinition Id="d6519569-cf9a-4f49-b85c-aef96422b55e" />
+              </controlFlow>
+              <controlFlow Id="3c7c297c-990d-421a-84a9-02e8569ff78c" isLeaf="false">
+                <opaqueActionMoniker Id="c124ad0e-f2f5-4271-8d6b-84e866b505fd" LastKnownName="Show query page" />
+                <elementDefinition Id="bf4ff598-69c5-497b-84e4-df3c38c82bc2" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <activityFinalNode Id="c78ed1ad-d583-40b4-9211-d3d237c0bb67" name="ActivityFinal2" isLeaf="false">
+            <elementDefinition Id="9981810e-40ba-4b24-8df5-82f0f64d506d" />
+          </activityFinalNode>
+          <opaqueAction Id="c124ad0e-f2f5-4271-8d6b-84e866b505fd" name="Show query page" isLeaf="false">
+            <elementDefinition Id="db89b6eb-1197-4f66-93b8-e529c7bca8c8" />
+            <flowNodeTargets>
+              <controlFlow Id="500b33ac-55de-4555-b5c1-caf7698dd945" isLeaf="false">
+                <activityFinalNodeMoniker Id="c78ed1ad-d583-40b4-9211-d3d237c0bb67" LastKnownName="ActivityFinal2" />
+                <elementDefinition Id="87a6a59d-d224-47c9-93f4-270c86b73284" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="cc3f364e-eff4-4cc6-9261-d6db151e6759" name="ReTrack.Model">
+    <elementDefinition Id="c44b13e7-c84d-4492-9536-86fcd4af8d7d" />
+  </package>
+</activityRootModel>
