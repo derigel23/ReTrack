@@ -1,0 +1,9 @@
+﻿<Window x:Class="ReTrack.Standalone.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:reTrack="clr-namespace:ReTrack;assembly=ReTrack.UI"
+        Title="MainWindow" Height="720" Width="400">
+    <Grid>
+      <reTrack:YouTrackExplorerWindow/>
+    </Grid>
+</Window>

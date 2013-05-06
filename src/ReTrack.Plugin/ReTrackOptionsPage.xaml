@@ -7,7 +7,7 @@
              d:DesignHeight="300" d:DesignWidth="300">
   <Grid>
     <Grid.RowDefinitions>
-      <RowDefinition/>
+      <RowDefinition Height="Auto"/>
       <RowDefinition/>
     </Grid.RowDefinitions>
     <Grid.ColumnDefinitions>
@@ -15,6 +15,8 @@
       <ColumnDefinition/>
     </Grid.ColumnDefinitions>
     <TextBlock>Username:</TextBlock>
-    <TextBox Name="usernameBox"></TextBox>
+    <TextBox Name="usernameBox" Grid.Column="1"></TextBox>
+    <TextBlock>Password:</TextBlock>
+    <PasswordBox></PasswordBox>
   </Grid>
 </UserControl>

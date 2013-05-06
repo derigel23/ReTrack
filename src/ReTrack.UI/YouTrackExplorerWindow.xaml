@@ -17,6 +17,6 @@
     </Grid.ColumnDefinitions>
     <tk:AutoCompleteBox ToolTip="Enter query" Text="{Binding Path=InputText}"
                         Height="27" Populating="TbInput_OnPopulating"/>
-    <controls:DataGrid Grid.Row="1"/>
+    <DataGrid Grid.Row="1"/>
   </Grid>
 </UserControl>

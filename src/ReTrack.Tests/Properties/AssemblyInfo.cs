@@ -3,6 +3,7 @@ using JetBrains.Threading;
 using System.Reflection;
 using System.Collections.Generic;
 using NUnit.Framework;
+using ReTrack;
 
 /// <summary>
 /// Test environment. Must be in the global namespace.
@@ -17,7 +18,7 @@ public class TestEnvironmentAssembly : ReSharperTestEnvironmentAssembly
   private static IEnumerable<Assembly> GetAssembliesToLoad()
   {
     yield return Assembly.GetExecutingAssembly();
-    yield return typeof(ReTrack.YouTrackExplorerWindowRegistrar).Assembly;
+    yield return typeof(YouTrackExplorerWindowRegistrar).Assembly;
   }
 
   public override void SetUp()
