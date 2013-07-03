@@ -1,3 +1,5 @@
+using JetBrains.UI.Application;
+
 namespace ReTrack
 {
   using System.Drawing;
@@ -29,11 +31,13 @@ namespace ReTrack
   {
     private readonly Lifetime lifetime;
     private readonly ToolWindowClass toolWindowClass;
+    private readonly IUIApplication application;
 
     public YouTrackExplorerWindowRegistrar(Lifetime lifetime, ToolWindowManager toolWindowManager,
-                                        YouTrackExplorerWindowDescriptor descriptor)
+                                        YouTrackExplorerWindowDescriptor descriptor, IUIApplication application)
     {
       this.lifetime = lifetime;
+      this.application = application;
 
       toolWindowClass = toolWindowManager.Classes[descriptor];
       toolWindowClass.RegisterEmptyContent(
@@ -41,7 +45,7 @@ namespace ReTrack
         lt =>
         {
           // initialize the default ('empty') content for the tool window
-          var label = new RichTextLabel { BackColor = SystemColors.Control, Dock = DockStyle.Fill };
+          var label = new RichTextLabel(application) { BackColor = SystemColors.Control, Dock = DockStyle.Fill };
           label.RichTextBlock.Add(new RichText("Nothing Here", new TextStyle(FontStyle.Bold)));
           label.RichTextBlock.Parameters = new RichTextBlockParameters(8, ContentAlignment.MiddleCenter);
           return label.BindToLifetime(lt);
@@ -58,7 +62,7 @@ namespace ReTrack
         null, // return a System.Drawing.Image to be displayed
         (lt, twi) =>
         {
-          var label = new RichTextLabel { BackColor = SystemColors.Control, Dock = DockStyle.Fill };
+          var label = new RichTextLabel(application) { BackColor = SystemColors.Control, Dock = DockStyle.Fill };
           label.RichTextBlock.Add(new RichText("My Content", new TextStyle(FontStyle.Bold)));
           label.RichTextBlock.Parameters = new RichTextBlockParameters(8, ContentAlignment.MiddleCenter);
           return label.BindToLifetime(lt);
