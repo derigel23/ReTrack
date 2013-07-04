@@ -6,6 +6,10 @@ using YouTrackSharp.Issues;
 
 namespace ReTrack
 {
+    public class YouTrackConnectionValidator
+    {
+        
+    }
     public class YouTrackProxy : IDisposable
     {
         private readonly IConnection connection;

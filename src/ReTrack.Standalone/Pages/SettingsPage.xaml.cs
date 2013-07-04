@@ -44,39 +44,24 @@ namespace ReTrack.Standalone.Pages
 
         private void TestConnection_Click(object sender, RoutedEventArgs e)
         {
-            try
+            var validator = new YouTrackConnectionValidator();
+            var errorMessage = "";
+            if (!validator.TryValidateConnection(new ReTrackSettings
             {
-                new YouTrackProxy(new ReTrackSettings
-                {
-                    YouTrackUsername = UsernameBox.Text,
-                    YouTrackPassword = PasswordBox.Password,
-                    YouTrackUrl = UrlBox.Text
-                });
-
+                YouTrackUsername = UsernameBox.Text,
+                YouTrackPassword = PasswordBox.Password,
+                YouTrackUrl = UrlBox.Text
+            }, out errorMessage))
+            {
+                MessageBox.Show(
+                    errorMessage,
+                    "Test Connection", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
                 MessageBox.Show(
                     string.Format("Successfully connected to {0}.", UrlBox.Text),
                     "Test Connection", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-            catch (Exception ex)
-            {
-                if (ex.Message.ToLowerInvariant() == "not found" || ex is WebException)
-                {
-                    MessageBox.Show(
-                        "An error occured while connecting to the remote server. Verify the URL is correct and try again.",
-                        "Test Connection", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-                else if (ex is AuthenticationException)
-                {
-                    MessageBox.Show(
-                        "An error occured while authenticating with the remote server. Verify your credentials and try again.",
-                        "Test Connection", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-                else
-                {
-                    MessageBox.Show(
-                        "An unspecified error occured while connecting to the remote server.",
-                        "Test Connection", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
             }
         }
 
