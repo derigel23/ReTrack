@@ -16,21 +16,13 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <TextBlock TextAlignment="Right">Username:</TextBlock>
-        <TextBox Grid.Column="1" />
-        <TextBlock Grid.Row="1" TextAlignment="Right">Password:</TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="0" TextAlignment="Right">Username:</TextBlock>
+        <TextBox Grid.Row="0" Grid.Column="1" />
+        <TextBlock Grid.Row="1" Grid.Column="0" TextAlignment="Right">Password:</TextBlock>
         <PasswordBox Grid.Row="1" Grid.Column="1" />
-        <TextBlock Grid.Row="2" TextAlignment="Right">Server URL:</TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="0" TextAlignment="Right">Server URL:</TextBlock>
         <TextBox Grid.Row="2" Grid.Column="1" />
-        <TextBlock Grid.Row="3" TextAlignment="Right">Port:</TextBlock>
-        <TextBox Grid.Row="3" Grid.Column="1" />
-        <TextBlock Grid.Row="4" TextAlignment="Right">Path:</TextBlock>
-        <TextBox Grid.Row="4" Grid.Column="1" />
-        <TextBlock Grid.Row="5" TextAlignment="Right">Use SSL:</TextBlock>
-        <CheckBox Grid.Row="5" Grid.Column="1" />
     </Grid>
 </Page>
