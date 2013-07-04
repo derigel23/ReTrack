@@ -1,3 +1,5 @@
+using JetBrains.ReSharper.Features.Altering.Resources;
+using JetBrains.ReSharper.Features.Finding.Resources;
 using JetBrains.UI.Application;
 
 namespace ReTrack
@@ -17,7 +19,8 @@ namespace ReTrack
         ProductNeutralId = "YouTrackExplorer",
         Text = "YouTrack Explorer",
         VisibilityPersistenceScope = ToolWindowVisibilityPersistenceScope.Solution,
-        Type = ToolWindowType.SingleInstance)]
+        Type = ToolWindowType.SingleInstance,
+        Icon = typeof(FeaturesFindingThemedIcons.SearchOptionsPage))] // TODO added an icon so R# doesn't crash on us, has to be replaced with a fancy one
     public class YouTrackExplorerWindowDescriptor : ToolWindowDescriptor
     {
         public YouTrackExplorerWindowDescriptor(IApplicationDescriptor applicationDescriptor)
