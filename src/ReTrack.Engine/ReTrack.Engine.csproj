@@ -54,6 +54,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReTrackSettings.cs" />
     <Compile Include="ShortIssue.cs" />
+    <Compile Include="ShortProject.cs" />
+    <Compile Include="YouTrackConnectionValidator.cs" />
     <Compile Include="YouTrackProxy.cs" />
   </ItemGroup>
   <ItemGroup>

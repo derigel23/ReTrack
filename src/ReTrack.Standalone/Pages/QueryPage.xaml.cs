@@ -12,6 +12,10 @@ namespace ReTrack.Standalone.Pages
         public QueryPage()
         {
             InitializeComponent();
+
+            var retrackApp = (App)Application.Current;
+            var proxy = new YouTrackProxy(retrackApp.Settings);
+            ExplorerWindow.InitializeViewModel(proxy);
         }
 
         private void BtnSettings_OnClick(object sender, RoutedEventArgs e)

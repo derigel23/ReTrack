@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using YouTrackSharp.Infrastructure;
 using YouTrackSharp.Issues;
+using YouTrackSharp.Projects;
 
 namespace ReTrack
 {
-    public class YouTrackConnectionValidator
-    {
-        
-    }
     public class YouTrackProxy : IDisposable
     {
         private readonly IConnection connection;
@@ -27,16 +24,37 @@ namespace ReTrack
         }
 
         /// <summary>
+        /// Simple query, yields <c>ShortProject</c> objects. Can drill down later if needed.
+        /// </summary>
+        /// <param name="startsWith"></param>
+        /// <returns></returns>
+        public IList<ShortProject> Projects(string startsWith)
+        {
+            startsWith = startsWith.ToLowerInvariant();
+
+            var pm = new ProjectManagement(connection);
+            return pm.GetProjects().Where(p => p.Name.ToLowerInvariant().StartsWith(startsWith) || p.ShortName.ToLowerInvariant().StartsWith(startsWith))
+                .Select(p => new ShortProject(p.ShortName, p.Name))
+                .ToList();
+        }
+
+        /// <summary>
         /// Simple query, yields <c>ShortIssue</c> objects. Can drill down later if needed.
         /// </summary>
-        /// <param name="s"></param>
+        /// <param name="projectShortName"></param>
+        /// <param name="query"></param>
         /// <returns></returns>
-        public IList<ShortIssue> Query(string s)
+        public IList<ShortIssue> Query(string projectShortName, string query)
         {
             var im = new IssueManagement(connection);
-            return im.GetIssuesBySearch(s, sensibleQueryLimit, 0)
+            if (!string.IsNullOrEmpty(projectShortName))
+            {
+                query = string.Format("project: {0} {1}", projectShortName, query);
+            }
+
+            return im.GetIssuesBySearch(query, sensibleQueryLimit, 0)
                 .Select((dynamic i) => new ShortIssue(i.Id, i.summary))
-                .ToList();
+                .ToList(); 
         }
 
         public void Dispose()

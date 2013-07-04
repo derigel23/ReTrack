@@ -13,9 +13,11 @@
             <RowDefinition Height="23" />
             <RowDefinition />
         </Grid.RowDefinitions>
+        
         <StackPanel Orientation="Horizontal">
             <Button Name="btnSettings" Content="Settings" Click="BtnSettings_OnClick" />
         </StackPanel>
-        <reTrack:YouTrackExplorerWindow Grid.Row="1" />
+        
+        <reTrack:YouTrackExplorerWindow Name="ExplorerWindow" Grid.Row="1" />
     </Grid>
 </Page>
