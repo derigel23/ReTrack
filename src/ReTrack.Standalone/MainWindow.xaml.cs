@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Configuration;
+using System.Windows;
 using System.Windows.Navigation;
 
 namespace ReTrack.Standalone
@@ -8,8 +9,6 @@ namespace ReTrack.Standalone
     /// </summary>
     public partial class MainWindow : NavigationWindow
     {
-        public ReTrackSettings Settings { get; set; }
-
         public MainWindow()
         {
             InitializeComponent();

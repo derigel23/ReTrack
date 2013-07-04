@@ -15,13 +15,19 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Grid.Column="0" TextAlignment="Right" Name="UsernameBox">Username:</TextBlock>
-        <TextBox Grid.Row="0" Grid.Column="1" />
-        <TextBlock Grid.Row="1" Grid.Column="0" TextAlignment="Right" Name="PasswordBox">Password:</TextBlock>
-        <PasswordBox Grid.Row="1" Grid.Column="1" />
-        <TextBlock Grid.Row="2" Grid.Column="0" TextAlignment="Right" Name="UrlBox">Server URL:</TextBlock>
-        <TextBox Grid.Row="2" Grid.Column="1" />
+        <TextBlock Grid.Row="0" Grid.Column="0" TextAlignment="Right">Username:</TextBlock>
+        <TextBox Grid.Row="0" Grid.Column="1" Name="UsernameBox" />
+        <TextBlock Grid.Row="1" Grid.Column="0" TextAlignment="Right">Password:</TextBlock>
+        <PasswordBox Grid.Row="1" Grid.Column="1" Name="PasswordBox"/>
+        <TextBlock Grid.Row="2" Grid.Column="0" TextAlignment="Right">Server URL:</TextBlock>
+        <TextBox Grid.Row="2" Grid.Column="1" Name="UrlBox" LostFocus="UrlBox_LostFocus" />
+        <Button Grid.Row="3" Grid.Column="1" Click="TestConnection_Click">
+            <DockPanel>
+                <TextBlock VerticalAlignment="center">Test connection</TextBlock>
+            </DockPanel>
+        </Button>
     </Grid>
 </UserControl>
