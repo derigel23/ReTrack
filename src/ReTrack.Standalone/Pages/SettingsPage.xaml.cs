@@ -14,14 +14,14 @@ using System.Windows.Shapes;
 
 namespace ReTrack.Standalone.Pages
 {
-  /// <summary>
-  /// Interaction logic for SettingsPage.xaml
-  /// </summary>
-  public partial class SettingsPage : Page
-  {
-    public SettingsPage()
+    /// <summary>
+    /// Interaction logic for SettingsPage.xaml
+    /// </summary>
+    public partial class SettingsPage : Page
     {
-      InitializeComponent();
+        public SettingsPage()
+        {
+            InitializeComponent();
+        }
     }
-  }
 }
