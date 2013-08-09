@@ -38,7 +38,7 @@
       <HintPath>..\packages\EasyHttp.1.6.55.0\lib\net40\EasyHttp.dll</HintPath>
     </Reference>
     <Reference Include="JsonFx">
-      <HintPath>..\..\packages\JsonFx.2.0.1209.2802\lib\net40\JsonFx.dll</HintPath>
+      <HintPath>..\packages\JsonFx.2.0.1209.2802\lib\net40\JsonFx.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -46,10 +46,10 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Controls.Input.Toolkit">
-      <HintPath>..\..\packages\WPFToolkit.3.5.50211.1\lib\System.Windows.Controls.Input.Toolkit.dll</HintPath>
+      <HintPath>..\packages\WPFToolkit.3.5.50211.1\lib\System.Windows.Controls.Input.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="System.Windows.Controls.Layout.Toolkit">
-      <HintPath>..\..\packages\WPFToolkit.3.5.50211.1\lib\System.Windows.Controls.Layout.Toolkit.dll</HintPath>
+      <HintPath>..\packages\WPFToolkit.3.5.50211.1\lib\System.Windows.Controls.Layout.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
@@ -59,10 +59,10 @@
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
     <Reference Include="WPFToolkit">
-      <HintPath>..\..\packages\WPFToolkit.3.5.50211.1\lib\WPFToolkit.dll</HintPath>
+      <HintPath>..\packages\WPFToolkit.3.5.50211.1\lib\WPFToolkit.dll</HintPath>
     </Reference>
     <Reference Include="YouTrackSharp">
-      <HintPath>..\..\packages\YouTrackSharp.2.0.15.0\lib\net40\YouTrackSharp.dll</HintPath>
+      <HintPath>..\packages\YouTrackSharp.2.0.15.0\lib\net40\YouTrackSharp.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
