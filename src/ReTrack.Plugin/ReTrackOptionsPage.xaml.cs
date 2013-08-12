@@ -7,10 +7,11 @@ using JetBrains.UI.CrossFramework;
 using JetBrains.UI.Options;
 using JetBrains.Application.Settings;
 using ReTrack.Engine;
+using ReTrack.Resources;
 
 namespace ReTrack
 {
-    [OptionsPage(PID, "ReTrack", null, ParentId = ToolsPage.PID)]
+    [OptionsPage(PID, "ReTrack", typeof(ReTrackThemedIcons.YouTrack), ParentId = ToolsPage.PID)]
     public partial class ReTrackOptionsPage : UserControl, IOptionsPage
     {
         private const string PID = "ReTrack.OptionsPage";
