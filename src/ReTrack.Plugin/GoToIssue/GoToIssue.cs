@@ -4,6 +4,7 @@ using JetBrains.Application.DataContext;
 using JetBrains.ReSharper.Feature.Services.ContextNavigation;
 using JetBrains.ReSharper.Features.Common.Occurences.ExecutionHosting;
 using JetBrains.ReSharper.Features.Finding.NavigateFromHere;
+using JetBrains.Util;
 
 namespace ReTrack.GoToIssue
 {
@@ -17,11 +18,7 @@ namespace ReTrack.GoToIssue
   {
     public Action GetSearchesExecution(IDataContext dataContext, INavigationExecutionHost host)
     {
-      return () =>
-      {
-        {
-        }
-      };
+      return EmptyAction.Instance;
     }
   }
 }
