@@ -1,21 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using ReTrack.UI.Infrastructure;
-
-namespace ReTrack.UI.Views.Issue
+﻿namespace ReTrack.UI.Views.Issue
 {
-    public partial class IssueView
+  using System.Diagnostics;
+  using System.Windows.Controls;
+  using System.Windows.Navigation;
+  using Infrastructure;
+
+  public partial class IssueView
         : UserControl, IViewModelBoundElement<IssueViewModel>
     {
         public IssueView()
@@ -28,5 +18,11 @@ namespace ReTrack.UI.Views.Issue
             get { return DataContext as IssueViewModel; }
             private set { DataContext = value; }
         }
+
+      private void Hyperlink_OnRequestNavigate(object sender, RequestNavigateEventArgs e)
+      {
+        Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
+        e.Handled = true;
+      }
     }
 }

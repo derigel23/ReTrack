@@ -8,21 +8,21 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
 	Title="MainPage">
-    <Page.DataContext>
-        <pages:MainPageViewModel/>
-    </Page.DataContext>
+  <Page.DataContext>
+    <pages:MainPageViewModel/>
+  </Page.DataContext>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-        </Grid.RowDefinitions>
-        
-        <ToolBarPanel HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Grid.Row="0">
-            <Button Command="{Binding OpenSettingsCommand}">Settings</Button>
-        </ToolBarPanel>
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"></RowDefinition>
+      <RowDefinition Height="*"></RowDefinition>
+    </Grid.RowDefinitions>
 
-        <issuebrowser:IssueBrowserView Name="IssueBrowser" Grid.Row="1">
-        </issuebrowser:IssueBrowserView>
-    </Grid>
+    <ToolBarPanel HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Grid.Row="0">
+      <Button Command="{Binding OpenSettingsCommand}">Settings</Button>
+    </ToolBarPanel>
+
+    <issuebrowser:IssueBrowserView Name="IssueBrowser" Grid.Row="1">
+    </issuebrowser:IssueBrowserView>
+  </Grid>
 </Page>
