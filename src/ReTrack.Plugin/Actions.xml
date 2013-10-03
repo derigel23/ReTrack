@@ -1,12 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <actions>
-  <action id="ReSharper.ReSharper_GoToIssue" text="Go to &amp;Issue…">
+  <action id="ReTrack.GoToIssue" text="Go to &amp;Issue…">
     <!-- these won't work, unfortunately -->
     <shortcut>Shift+Control+Alt+I</shortcut>
     <vs-shortcut>Alt+Shift+W</vs-shortcut>
   </action>
-
-  <insert group-id="ReSharper.Navigate" position="after" anchor-id="GotoFileMember">
-    <action-ref id="GotoWordIndex"/>
-  </insert>
 </actions>
