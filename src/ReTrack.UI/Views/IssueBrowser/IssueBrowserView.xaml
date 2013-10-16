@@ -34,7 +34,8 @@
 
         <WpfToolkit:DataGrid Grid.Row="1"
                   ItemsSource="{Binding Path=Issues, Mode=TwoWay}"
-                  HorizontalScrollBarVisibility="Auto" AutoGenerateColumns="False">
+                  HorizontalScrollBarVisibility="Auto" AutoGenerateColumns="False"
+                             GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="Gray">
             <WpfToolkit:DataGrid.Columns>
                 <WpfToolkit:DataGridTemplateColumn Header="Id">
                     <WpfToolkit:DataGridTemplateColumn.CellTemplate>
