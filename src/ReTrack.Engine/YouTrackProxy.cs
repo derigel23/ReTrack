@@ -79,6 +79,18 @@ namespace ReTrack.Engine
                 .ToList();
         }
 
+        public void AttachFile(string issueId, string pathToFile)
+        {
+          var im = new IssueManagement(connection);
+          im.AttachFileToIssue(issueId, pathToFile);
+        }
+
+        public void SubmitComment(string issueId, string text)
+        {
+          var im = new IssueManagement(connection);
+          im.ApplyCommand(issueId, null, text);
+        }
+
         public void Dispose()
         {
             if (connection.IsAuthenticated) connection.Logout();

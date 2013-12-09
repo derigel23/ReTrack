@@ -81,12 +81,15 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition Height="*" />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
 
       <TextBlock Grid.Row="0" Margin="6,0">Comments:</TextBlock>
       <StackPanel Grid.Row="1" Margin="6,0">
         <ListView x:Name="CommentsListView" ItemsSource="{Binding Comments}"  ItemTemplate="{DynamicResource CommentListViewItemDataTemplate}"></ListView>
       </StackPanel>
+      <TextBox AcceptsReturn="True" TextWrapping="Wrap" Grid.Row="2" Name="CommentBox"
+               KeyDown="CommentBox_KeyDown"/>
     </Grid>
   </Grid>
 </UserControl>

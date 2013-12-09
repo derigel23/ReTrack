@@ -69,6 +69,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Infrastructure\CommentProcessor.cs" />
     <Compile Include="Infrastructure\DelegateCommand.cs" />
     <Compile Include="Infrastructure\IViewModelBoundElement.cs" />
     <Compile Include="Infrastructure\DelegateCommandT.cs" />

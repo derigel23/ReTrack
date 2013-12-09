@@ -6,9 +6,9 @@ namespace ReTrack.UI.Views.Issue
   using System.Windows;
   using Engine;
   using Engine.Models;
+  using ReTrack.UI.Infrastructure;
 
-  public class IssueViewModel
-      : ViewModelBase
+  public class IssueViewModel : ViewModelBase
   {
     private string _summary;
     private string _state;
@@ -93,7 +93,14 @@ namespace ReTrack.UI.Views.Issue
       QueryForComments(issue.ID);
     }
 
-    protected void QueryForComments(string issueId)
+    public void SubmitComment(string text)
+    {
+      CommentProcessor.Process(text, Proxy, Id);
+//      Task.Factory.StartNew(() => Proxy.SubmitComment(Id, text))
+//        .ContinueWith(r => QueryForComments(Id));
+    }
+
+    public void QueryForComments(string issueId)
     {
       Task.Factory.StartNew(() => Proxy.QueryComments(issueId)).ContinueWith(
           r =>
