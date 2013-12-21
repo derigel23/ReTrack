@@ -98,7 +98,7 @@ namespace ReTrack.UI.Infrastructure
           int end = comment.Substring(i).IndexOf("}]");
           if (end != -1)
           {
-            string toRasterize = comment.Substring(i + 2, end - 3);
+            string toRasterize = comment.Substring(i + 2, end - 2);
             renderedComments.Add(toRasterize);
             Guid g = Guid.NewGuid();
             sb.Append('!').Append(g.ToString()).Append(".png!");
@@ -115,7 +115,7 @@ namespace ReTrack.UI.Infrastructure
       var filesToDelete = new List<string>();
       for (int i = 0; i < renderedComments.Count; ++i)
       {
-        using (var bmp = RenderFreeformText(512, 512, renderedComments[i]))
+        using (var bmp = RenderFreeformText(776, 1024, renderedComments[i]))
         {
           string whereToPut = Path.Combine(tempPath, guids[i].ToString() + ".png");
           bmp.Save(whereToPut, ImageFormat.Png);

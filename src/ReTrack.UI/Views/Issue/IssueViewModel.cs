@@ -10,10 +10,10 @@ namespace ReTrack.UI.Views.Issue
 
   public class IssueViewModel : ViewModelBase
   {
-    private string _summary;
-    private string _state;
-    private string _type;
-    private string _id;
+    private string summary;
+    private string state;
+    private string type;
+    private string id;
     private string url;
 
     public string Url
@@ -33,44 +33,44 @@ namespace ReTrack.UI.Views.Issue
 
     public string Id
     {
-      get { return _id; }
+      get { return id; }
       set
       {
-        if (value == _id) return;
-        _id = value;
+        if (value == id) return;
+        id = value;
         OnPropertyChanged("Id");
       }
     }
 
     public string Type
     {
-      get { return _type; }
+      get { return type; }
       set
       {
-        if (value == _type) return;
-        _type = value;
+        if (value == type) return;
+        type = value;
         OnPropertyChanged("Type");
       }
     }
 
     public string State
     {
-      get { return _state; }
+      get { return state; }
       set
       {
-        if (value == _state) return;
-        _state = value;
+        if (value == state) return;
+        state = value;
         OnPropertyChanged("State");
       }
     }
 
     public string Summary
     {
-      get { return _summary; }
+      get { return summary; }
       set
       {
-        if (value == _summary) return;
-        _summary = value;
+        if (value == summary) return;
+        summary = value;
         OnPropertyChanged("Summary");
       }
     }
@@ -88,7 +88,7 @@ namespace ReTrack.UI.Views.Issue
       Type = issue.Type;
       State = issue.State;
       Summary = issue.Summary;
-      Url = proxy.BaseUrl + '/' + issue.ID;
+      Url = proxy.BaseUrl + "/issue/" + issue.ID;
 
       QueryForComments(issue.ID);
     }
@@ -108,7 +108,8 @@ namespace ReTrack.UI.Views.Issue
             Application.Current.Dispatcher.Invoke(new Action(() => Comments.Clear()));
             foreach (var comment in r.Result)
             {
-              Application.Current.Dispatcher.Invoke(new Action(() => Comments.Add(comment)));
+              ShortComment comment1 = comment;
+              Application.Current.Dispatcher.Invoke(new Action(() => Comments.Add(comment1)));
             }
           });
     }

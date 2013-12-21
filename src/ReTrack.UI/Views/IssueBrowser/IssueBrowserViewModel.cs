@@ -14,8 +14,8 @@ namespace ReTrack.UI.Views.IssueBrowser
     public class IssueBrowserViewModel
         : ViewModelBase
     {
-        private string _currentProjectShortName;
-        private string _currentQuery;
+        private string currentProjectShortName;
+        private string currentQuery;
 
         public YouTrackProxy Proxy { get; set; }
 
@@ -26,22 +26,22 @@ namespace ReTrack.UI.Views.IssueBrowser
 
         public string CurrentProjectShortName
         {
-            get { return _currentProjectShortName; }
+            get { return currentProjectShortName; }
             set
             {
-                if (value == _currentProjectShortName) return;
-                _currentProjectShortName = value;
+                if (value == currentProjectShortName) return;
+                currentProjectShortName = value;
                 OnPropertyChanged("CurrentProjectShortName");
             }
         }
 
         public string CurrentQuery
         {
-            get { return _currentQuery; }
+            get { return currentQuery; }
             set
             {
-                if (value == _currentQuery) return;
-                _currentQuery = value;
+                if (value == currentQuery) return;
+                currentQuery = value;
                 OnPropertyChanged("CurrentQuery");
             }
         }
@@ -86,7 +86,7 @@ namespace ReTrack.UI.Views.IssueBrowser
             CurrentProjectShortName = "";
         }
 
-        protected void QueryForIssues()
+      public void QueryForIssues()
         {
             Task.Factory.StartNew(() => Proxy.Query(CurrentProjectShortName, CurrentQuery)).ContinueWith(
                 r =>
