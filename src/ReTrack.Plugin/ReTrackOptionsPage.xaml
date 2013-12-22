@@ -6,28 +6,51 @@
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
 
-    <Grid>
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition/>
+    </Grid.ColumnDefinitions>
+    <TextBlock>YouTrack connections:</TextBlock>
+    <ListBox Grid.Row="1"></ListBox>
+    <StackPanel Grid.Row="2" Orientation="Horizontal">
+      <Button>Add</Button>
+      <Button>Edit</Button>
+      <Button>Delete</Button>
+    </StackPanel>
+    <Grid Grid.Row="3">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto"/>
+        <ColumnDefinition></ColumnDefinition>
+      </Grid.ColumnDefinitions>
+      <TextBlock>Server URL:</TextBlock>
+      <TextBlock Grid.Row="1">Username:</TextBlock>
+      <TextBlock Grid.Row="2">Password:</TextBlock>
+      <TextBlock Grid.Row="3">Port:</TextBlock>
+      <TextBox Grid.Row="0" Grid.Column="1"  Name="UrlBox"></TextBox>
+      <TextBox Grid.Row="1" Grid.Column="1" Name="UsernameBox"></TextBox>
+      <PasswordBox Grid.Row="2" Grid.Column="1" Name="PasswordBox"></PasswordBox>
+      <Grid Grid.Row="3" Grid.Column="1" > 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto"/>
+          <ColumnDefinition Width="Auto"/>
+          <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Grid.Column="0" TextAlignment="Right">Username:</TextBlock>
-        <TextBox Grid.Row="0" Grid.Column="1" Name="UsernameBox" />
-        <TextBlock Grid.Row="1" Grid.Column="0" TextAlignment="Right">Password:</TextBlock>
-        <PasswordBox Grid.Row="1" Grid.Column="1" Name="PasswordBox"/>
-        <TextBlock Grid.Row="2" Grid.Column="0" TextAlignment="Right">Server URL:</TextBlock>
-        <TextBox Grid.Row="2" Grid.Column="1" Name="UrlBox" LostFocus="UrlBox_LostFocus" />
-        <Button Grid.Row="3" Grid.Column="1" Click="TestConnection_Click">
-            <DockPanel>
-                <TextBlock VerticalAlignment="center">Test connection</TextBlock>
-            </DockPanel>
-        </Button>
+        <Button>80</Button>
+        <TextBox Name="PortBox" PreviewTextInput="PortBox_OnPreviewTextInput"
+                 DataObject.Pasting="PortBox_OnPasting"/>
+      </Grid>
     </Grid>
+  </Grid>
 </UserControl>
