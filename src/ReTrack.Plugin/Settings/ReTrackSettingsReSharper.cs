@@ -31,7 +31,7 @@ namespace ReTrack.Settings
       set { base.Url = value; }
     }
 
-    [SettingsEntry(80, "YouTrack server port")]
+    [SettingsEntry("80", "YouTrack server port")]
     public new string Port
     {
       get

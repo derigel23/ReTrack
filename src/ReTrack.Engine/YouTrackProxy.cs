@@ -12,7 +12,7 @@ namespace ReTrack.Engine
 {
   public class YouTrackProxy : IDisposable
   {
-    private readonly IConnection connection;
+    private IConnection connection;
     public string BaseUrl { get; set; }
     private const int sensibleQueryLimit = 20;
 
@@ -24,8 +24,18 @@ namespace ReTrack.Engine
 
     public YouTrackProxy(string username, string password, Uri url)
     {
+      Initialize(username, password, url);
+    }
+
+    public void Initialize(string username, string password, Uri url)
+    {
       connection = new Connection(url.Host, url.Port, url.Scheme == Uri.UriSchemeHttps, url.GetComponents(UriComponents.Path, UriFormat.UriEscaped).TrimEnd('/'));
       connection.Authenticate(username, password);
+    }
+
+    protected YouTrackProxy()
+    {
+      
     }
 
     /// <summary>

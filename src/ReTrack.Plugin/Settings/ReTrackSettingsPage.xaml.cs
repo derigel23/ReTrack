@@ -22,9 +22,7 @@ namespace ReTrack.Settings
       InitializeComponent();
       
       ctx.SetBinding(lifetime, (ReTrackSettingsReSharper s) => s.YouTrackUsername, UsernameBox, TextBox.TextProperty);
-      
-      // it is entirely uncertain how to store the password
-
+      ctx.SetBinding(lifetime, (ReTrackSettingsReSharper s) => s.YouTrackPassword, PasswordBox, TextBox.TextProperty);
       ctx.SetBinding(lifetime, (ReTrackSettingsReSharper s) => s.YouTrackUrl, UrlBox, TextBox.TextProperty);
       ctx.SetBinding(lifetime, (ReTrackSettingsReSharper s) => s.Port, PortBox, TextBox.TextProperty);
     }
@@ -36,8 +34,14 @@ namespace ReTrack.Settings
 
     public bool ValidatePage()
     {
-      // todo: attempt to connect to source (if specified)
-      return true;
+      string msg;
+      return new YouTrackConnectionValidator().TryValidateConnection(new ReTrackSettings
+      {
+        Username = UsernameBox.Text,
+        Password = PasswordBox.Text,
+        Port = byte.Parse(PortBox.Text),
+        Url = UrlBox.Text
+      }, out msg);
     }
 
     public EitherControl Control
@@ -67,7 +71,7 @@ namespace ReTrack.Settings
       if (!validator.TryValidateConnection(new ReTrackSettings
       {
         Username = UsernameBox.Text,
-        Password = PasswordBox.Password,
+        Password = PasswordBox.Text,
         Url = UrlBox.Text
       }, out errorMessage))
       {

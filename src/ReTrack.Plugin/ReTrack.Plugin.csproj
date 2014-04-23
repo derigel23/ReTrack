@@ -67,7 +67,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GoToIssue\GoToIssue.cs" />
+    <Compile Include="Navigation\GoToIssue.cs" />
+    <Compile Include="Navigation\YouTrackIssueOccurence.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\ReTrackThemedIcons\ThemedIcons.ReTrack.Generated.cs">
       <DependentUpon>ReTrackThemedIcons.xaml</DependentUpon>
@@ -77,6 +78,7 @@
     </Compile>
     <Compile Include="Settings\ReTrackSettingsReSharper.cs" />
     <Compile Include="YouTrackExplorerWindowDescriptor.cs" />
+    <Compile Include="YouTrackService.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Actions.xml" />
