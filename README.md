@@ -2,10 +2,9 @@ ReTrack
 =======
 This project aims to integrate bug tracking into ReSharper.
 
-The tentative roadmap is as follows:
+First set of planned features:
 
-* Present issues and comments
-* Allow search within standalone app
-* Allow search via an appropriate window in ReSharper
+* Go to Issue (general YT search window similar to IDEA)
+* Ctrl-click on issue ID in comments
 
 Issues are tracked, of course, in [YouTrack](http://retrack.myjetbrains.com/youtrack/issues).
