@@ -37,7 +37,7 @@ namespace ReTrack.Navigation
     public IEnumerable<IOccurence> GetOccurencesByMatchingInfo(MatchingInfo navigationInfo, INavigationScope scope, GotoContext gotoContext,
       Func<bool> checkForInterrupt)
     {
-      yield return new YouTrackIssueOccurence();
+      yield return new YouTrackIssueOccurence{Text="Foo"};
     }
 
     public Func<int, int> ItemsPriorityFunc { get { return _ => _; } }

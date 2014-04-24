@@ -1,21 +1,29 @@
-using System.Collections.Generic;
-using JetBrains.IDE;
-using JetBrains.ProjectModel;
-using JetBrains.ReSharper.Feature.Services.Navigation.Search;
-using JetBrains.ReSharper.Feature.Services.Occurences;
-using JetBrains.ReSharper.Psi;
-using JetBrains.UI.PopupWindowManager;
-using JetBrains.Util;
+using JetBrains.Application;
 
 namespace ReTrack.Navigation
 {
+  using System.Collections.Generic;
+  using JetBrains.IDE;
+  using JetBrains.ProjectModel;
+  using JetBrains.ReSharper.Feature.Services.Navigation.Search;
+  using JetBrains.ReSharper.Feature.Services.Occurences;
+  using JetBrains.ReSharper.Psi;
+  using JetBrains.UI.PopupWindowManager;
+  using JetBrains.Util;
+  using Microsoft.VisualStudio.Shell.Interop;
+
   public class YouTrackIssueOccurence : IOccurence
   {
+    readonly TextRange range = new TextRange();
+
     public bool Navigate(ISolution solution, PopupWindowContextSource windowContext, bool transferFocus,
       TabOptions tabOptions = TabOptions.Default)
     {
+      // this literally takes you to the issue
+      Shell.Instance.GetComponent<YouTrackService>().NavigateToIssue("RT-1");
+
       // soon!
-      return false;
+      return true;
     }
 
     public string DumpToString()
@@ -24,7 +32,7 @@ namespace ReTrack.Navigation
     }
 
     public TextRange TextRange {
-      get { return new TextRange(); }
+      get { return range; }
     }
 
     public ProjectModelElementEnvoy ProjectModelElementEnvoy
@@ -48,5 +56,6 @@ namespace ReTrack.Navigation
     public object MergeKey { get { return null; } }
     public IList<IOccurence> MergedItems {get { return null; }}
     public OccurencePresentationOptions PresentationOptions { get; set; }
+    public string Text { get; set; }
   }
 }

@@ -1,23 +1,37 @@
-﻿using System;
+﻿using System.Linq.Expressions;
+using JetBrains.DataFlow;
+using JetBrains.Reflection;
+using JetBrains.ReSharper.Feature.Services.CallHierarchy.Impl;
+using ReTrack.Settings;
 
 namespace ReTrack
 {
   using JetBrains.Application;
   using JetBrains.Application.Settings;
   using Engine;
-  using Settings;
+  using Microsoft.VisualStudio.Shell.Interop;
 
   [ShellComponent]
   public class YouTrackService : YouTrackProxy
   {
-    public YouTrackService(ISettingsStore store)
-    {
-      var ctxStore = store.BindToContextTransient(ContextRange.ApplicationWide);
-      var settings = ctxStore.GetKey<ReTrackSettingsReSharper>(SettingsOptimization.OptimizeDefault);
+    private readonly IVsWebBrowsingService wbs;
+    private readonly Lifetime lifetime;
+    private readonly IContextBoundSettingsStoreLive store;
 
-      // dull sanity check for now
-      if (!string.IsNullOrWhiteSpace(settings.Url))
-        Initialize(settings.Username, settings.Password, new Uri(settings.Url));
+    public YouTrackService(ISettingsStore store, IVsWebBrowsingService wbs, Lifetime lifetime)
+    {
+      this.wbs = wbs;
+      this.lifetime = lifetime;
+      this.store = store.BindToContextLive(lifetime, ContextRange.ApplicationWide);
+    }
+
+    public void NavigateToIssue(string id)
+    {
+      var url = store.GetValueProperty<ReTrackSettingsReSharper, string>(lifetime, x => x.YouTrackUrl);
+
+      string path = string.Format("{0}/issue/{1}", url.Value, id);
+      IVsWindowFrame _;
+      if (wbs != null) wbs.Navigate(path, 0, out _);
     }
   }
 }
