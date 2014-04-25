@@ -1,5 +1,3 @@
-using JetBrains.Application;
-
 namespace ReTrack.Navigation
 {
   using System.Collections.Generic;
@@ -10,7 +8,7 @@ namespace ReTrack.Navigation
   using JetBrains.ReSharper.Psi;
   using JetBrains.UI.PopupWindowManager;
   using JetBrains.Util;
-  using Microsoft.VisualStudio.Shell.Interop;
+  using JetBrains.Application;
 
   public class YouTrackIssueOccurence : IOccurence
   {
@@ -20,7 +18,7 @@ namespace ReTrack.Navigation
       TabOptions tabOptions = TabOptions.Default)
     {
       // this literally takes you to the issue
-      Shell.Instance.GetComponent<YouTrackService>().NavigateToIssue("RT-1");
+      Shell.Instance.GetComponent<YouTrackService>().NavigateToIssue(IssueId);
 
       // soon!
       return true;
@@ -56,6 +54,9 @@ namespace ReTrack.Navigation
     public object MergeKey { get { return null; } }
     public IList<IOccurence> MergedItems {get { return null; }}
     public OccurencePresentationOptions PresentationOptions { get; set; }
-    public string Text { get; set; }
+
+    public string IssueId { get; set; }
+    public string IssueDescription { get; set; }
+    
   }
 }

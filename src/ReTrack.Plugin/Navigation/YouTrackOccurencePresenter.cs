@@ -11,7 +11,10 @@ namespace ReTrack.Navigation
     public bool Present(IMenuItemDescriptor descriptor, IOccurence occurence,
       OccurencePresentationOptions occurencePresentationOptions)
     {
-      descriptor.Text = ((YouTrackIssueOccurence) occurence).Text;
+      var o = ((YouTrackIssueOccurence) occurence);
+      descriptor.Text = o.IssueId;
+      descriptor.Text.Append(" - ");
+      descriptor.Text.Append(o.IssueDescription);
       descriptor.Style = MenuItemStyle.Enabled;
 
       return true;

@@ -37,7 +37,10 @@ namespace ReTrack.Navigation
     public IEnumerable<IOccurence> GetOccurencesByMatchingInfo(MatchingInfo navigationInfo, INavigationScope scope, GotoContext gotoContext,
       Func<bool> checkForInterrupt)
     {
-      yield return new YouTrackIssueOccurence{Text="Foo"};
+      // send this off to the server to be processed
+      foreach (string s in yt.GetCompletionOptionsFor(navigationInfo.Identifier))
+        yield return new YouTrackIssueOccurence { IssueId = navigationInfo.Identifier, IssueDescription = s };
+
     }
 
     public Func<int, int> ItemsPriorityFunc { get { return _ => _; } }

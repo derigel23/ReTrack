@@ -67,7 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Navigation\GoToIssue.cs" />
+    <Compile Include="Navigation\GoToYouTrackIssueProvider.cs" />
     <Compile Include="Navigation\YouTrackIssueOccurence.cs" />
     <Compile Include="Navigation\YouTrackOccurencePresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
