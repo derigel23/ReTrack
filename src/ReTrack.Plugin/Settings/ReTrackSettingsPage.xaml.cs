@@ -1,17 +1,16 @@
 ﻿using System;
-using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using JetBrains.Application.Settings;
 using JetBrains.DataFlow;
 using JetBrains.ReSharper.Features.Common.Options;
 using JetBrains.UI.CrossFramework;
 using JetBrains.UI.Options;
-using JetBrains.Application.Settings;
 using ReTrack.Engine;
 using ReTrack.Resources;
 
-namespace ReTrack
+namespace ReTrack.Settings
 {
   [OptionsPage(PID, "ReTrack", typeof(ReTrackThemedIcons.YouTrack), ParentId = ToolsPage.PID)]
   public partial class ReTrackOptionsPage : UserControl, IOptionsPage
@@ -21,10 +20,11 @@ namespace ReTrack
     public ReTrackOptionsPage(Lifetime lifetime, OptionsSettingsSmartContext ctx)
     {
       InitializeComponent();
-
-      //ctx.SetBinding(lifetime, (ReTrackSettingsReSharper s) => s.YouTrackUsername, UsernameBox, TextBox.TextProperty);
-      //ctx.SetBinding(lifetime, (ReTrackSettingsReSharper s) => s.YouTrackPassword, PasswordBox, TextBox.TextProperty);
-      //ctx.SetBinding(lifetime, (ReTrackSettingsReSharper s) => s.YouTrackUrl, UrlBox, TextBox.TextProperty);
+      
+      ctx.SetBinding(lifetime, (ReTrackSettingsReSharper s) => s.YouTrackUsername, UsernameBox, TextBox.TextProperty);
+      ctx.SetBinding(lifetime, (ReTrackSettingsReSharper s) => s.YouTrackPassword, PasswordBox, TextBox.TextProperty);
+      ctx.SetBinding(lifetime, (ReTrackSettingsReSharper s) => s.YouTrackUrl, UrlBox, TextBox.TextProperty);
+      ctx.SetBinding(lifetime, (ReTrackSettingsReSharper s) => s.Port, PortBox, TextBox.TextProperty);
     }
 
     public bool OnOk()
@@ -34,8 +34,14 @@ namespace ReTrack
 
     public bool ValidatePage()
     {
-      // todo: attempt to connect to source (if specified)
-      return true;
+      string msg;
+      return new YouTrackConnectionValidator().TryValidateConnection(new ReTrackSettings
+      {
+        Username = UsernameBox.Text,
+        Password = PasswordBox.Text,
+        Port = byte.Parse(PortBox.Text),
+        Url = UrlBox.Text
+      }, out msg);
     }
 
     public EitherControl Control
@@ -65,7 +71,7 @@ namespace ReTrack
       if (!validator.TryValidateConnection(new ReTrackSettings
       {
         Username = UsernameBox.Text,
-        Password = PasswordBox.Password,
+        Password = PasswordBox.Text,
         Url = UrlBox.Text
       }, out errorMessage))
       {
@@ -116,6 +122,11 @@ namespace ReTrack
       {
         e.CancelCommand();
       }
+    }
+
+    private void BtnAdd_OnClick(object sender, RoutedEventArgs e)
+    {
+      
     }
   }
 }
