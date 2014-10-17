@@ -39,7 +39,9 @@ namespace ReTrack.Navigation
     {
       // send this off to the server to be processed
       foreach (string s in yt.GetCompletionOptionsFor(navigationInfo.Identifier))
-        yield return new YouTrackIssueOccurence { IssueId = navigationInfo.Identifier, IssueDescription = s };
+      {
+        yield return new YouTrackIssueOccurence {IssueId = navigationInfo.Identifier, IssueDescription = s};
+      }
 
     }
 

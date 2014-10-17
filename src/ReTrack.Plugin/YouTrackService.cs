@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Linq;
+using System.Text;
 
 namespace ReTrack
 {
@@ -53,6 +54,7 @@ namespace ReTrack
       if (suggest != null)
       {
         var items = suggest.Elements("item");
+        int count = items.Count();
         foreach (var item in items)
         {
           // concatenate prefix, option and suffix
@@ -61,6 +63,7 @@ namespace ReTrack
           var suffixItem = item.Element("suffix");
 
           var sb = new StringBuilder();
+          
           if (prefixItem != null) sb.Append(prefixItem.Value);
           if (optionItem != null) sb.Append(optionItem.Value);
           if (suffixItem != null) sb.Append(suffixItem.Value);

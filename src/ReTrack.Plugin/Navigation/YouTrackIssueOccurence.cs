@@ -51,7 +51,7 @@ namespace ReTrack.Navigation
     public DeclaredElementEnvoy<INamespace> Namespace { get { return null; }}
     public OccurenceType OccurenceType {get { return OccurenceType.Occurence; }}
     public bool IsValid { get { return true; } }
-    public object MergeKey { get { return null; } }
+    public object MergeKey { get { return IssueDescription; } }
     public IList<IOccurence> MergedItems {get { return null; }}
     public OccurencePresentationOptions PresentationOptions { get; set; }
 
