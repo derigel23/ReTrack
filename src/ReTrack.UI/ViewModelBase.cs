@@ -3,8 +3,7 @@ using ReTrack.UI.Properties;
 
 namespace ReTrack.UI
 {
-    public class ViewModelBase
-        : INotifyPropertyChanged
+    public class ViewModelBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
